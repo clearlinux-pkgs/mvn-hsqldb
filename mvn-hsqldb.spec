@@ -4,7 +4,7 @@
 #
 Name     : mvn-hsqldb
 Version  : 2.3.4
-Release  : 1
+Release  : 2
 URL      : https://github.com/ryenus/hsqldb/archive/2.3.4.tar.gz
 Source0  : https://github.com/ryenus/hsqldb/archive/2.3.4.tar.gz
 Source1  : https://repo1.maven.org/maven2/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.jar
