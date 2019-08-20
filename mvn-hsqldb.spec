@@ -4,11 +4,13 @@
 #
 Name     : mvn-hsqldb
 Version  : 2.3.4
-Release  : 2
+Release  : 3
 URL      : https://github.com/ryenus/hsqldb/archive/2.3.4.tar.gz
 Source0  : https://github.com/ryenus/hsqldb/archive/2.3.4.tar.gz
-Source1  : https://repo1.maven.org/maven2/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.jar
-Source2  : https://repo1.maven.org/maven2/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.pom
+Source1  : https://repo.maven.apache.org/maven2/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.jar
+Source2  : https://repo.maven.apache.org/maven2/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.pom
+Source3  : https://repo1.maven.org/maven2/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.jar
+Source4  : https://repo1.maven.org/maven2/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -33,15 +35,22 @@ data components for the mvn-hsqldb package.
 
 
 %prep
+%setup -q -n hsqldb-2.3.4
 
 %build
 
 %install
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/hsqldb/hsqldb/2.3.4
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/hsqldb/hsqldb/1.8.0.10
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/hsqldb/hsqldb/1.8.0.10
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/hsqldb/hsqldb/2.3.4
-cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.pom
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/hsqldb/hsqldb/2.3.4
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.pom
 
 
 %files
@@ -49,5 +58,7 @@ cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/hsqldb/hsqldb/2.3.4
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.jar
+/usr/share/java/.m2/repository/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.pom
 /usr/share/java/.m2/repository/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.jar
 /usr/share/java/.m2/repository/org/hsqldb/hsqldb/2.3.4/hsqldb-2.3.4.pom
